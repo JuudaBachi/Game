@@ -47,7 +47,6 @@ public class LevelOne {
 		int max = map.list.size();
 		for(int q = 0;q<max;q++){
 				if(map.list.get(q).intersects(p) && Player.y  > map.list.get(q).y * 40 ){
-					Player.inAir = false;
 					Player.y += Player.yy + 6;
 					Player.yy = 0;
 					
@@ -58,16 +57,11 @@ public class LevelOne {
 					Player.yy = 0;
 				}
 				if(map.list.get(q).intersects(p) && Player.x > map.list.get(q).x * 40 ){
-					Player.inAir = false;
 					Player.x += Player.xx + 2;
 				}
 				if(map.list.get(q).intersects(p) && Player.x < map.list.get(q).x * 40 ){
-					Player.inAir = false;
 					Player.x += -Player.xx + - 2;
 	
-				}
-				if(map.list.get(q).intersects(p) == false){
-					Player.inAir = true;
 				}
 			
 		}
