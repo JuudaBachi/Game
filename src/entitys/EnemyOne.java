@@ -18,9 +18,11 @@ public class EnemyOne   {
 	public boolean inAir = true;
 	
 	
-	public EnemyOne(int x, int y){	
+	public EnemyOne(int x, int y, int xx , int yy){	
 		this.x = x;
 		this.y = y;
+		this.xx = xx;
+		this.yy = yy;
 	}
 	public EnemyOne(){	
 
@@ -43,8 +45,11 @@ public class EnemyOne   {
 	
 	public void walls(){
 		
-		if(x < 0 || x > Game.screenSize.width-30){
+		if(x < -20 || x > 1440){
 			xx = -xx;
+		}
+		if(y < 0 || y > 920){
+			yy = -yy;
 		}
 	}
 

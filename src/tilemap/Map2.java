@@ -5,35 +5,48 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-public class Map {
+public class Map2 {
 	
 	
 	public static final int CLEAR = 0;
 	public static final int BLOCKED = 1;
-	public static final int WIDTH = 1440 / 40;
-	public static final int HEIGHT = 920  / 40;
+	public static final int WIDTH = 1440 / 40; //36
+	public static final int HEIGHT = 920 / 40; //23
 	public static final int TILE_SIZE = 40;
 	public Color color = new Color(232, 190, 91);
 	public static int[][] data = new int[WIDTH][HEIGHT];
 	public ArrayList<Rectangle> list = new ArrayList<Rectangle>();
 	public boolean u = true;
 	
-	public Map(){
+	public Map2(){
 		
 		for(int y = 0; y<HEIGHT; y++){
-		//	data[1][y] = BLOCKED;
-		//	data[WIDTH - 1][y] = BLOCKED;
 			
 		}
 		for(int x = 0; x <WIDTH; x++){
-			data[x][HEIGHT - 3] = BLOCKED;
-
-			if (x < WIDTH - 4) {
-				data[x][HEIGHT - 8] = BLOCKED;
-				data[x][HEIGHT - 16] = BLOCKED;
+			if(x < WIDTH - 34){
+				data[x][HEIGHT - 3] = BLOCKED;
 			}
-			if (x > WIDTH - 27) {
+			if(x < WIDTH -30 && x > 3){
+				data[x][HEIGHT - 5] = BLOCKED;
+			}
+			if(x > WIDTH - 28){
+				data[x][HEIGHT - 6] = BLOCKED;
+			}
+			if(x > WIDTH - 6){
+				data[x][HEIGHT - 10] = BLOCKED;
+			}
+			if(x > WIDTH - 11 && x > 15 && x < 24){
 				data[x][HEIGHT - 12] = BLOCKED;
+			}
+			if(x > WIDTH - 6){
+				data[x][HEIGHT - 15] = BLOCKED;
+			}
+			if(x > WIDTH - 13 && x > 22 && x < 29 ){
+				data[x][HEIGHT - 17] = BLOCKED;
+			}
+			if(x < WIDTH - 15){
+				data[x][HEIGHT - 19] = BLOCKED;
 			}
 		}
 			

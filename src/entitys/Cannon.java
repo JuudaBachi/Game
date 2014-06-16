@@ -17,11 +17,14 @@ public class Cannon   {
 	public int yy = 0;
 	public int bx = 0;
 	public int by = 0;
+	public int px, py;
 	
 	
-	public Cannon(int x, int y){	
-		this.x =x;
+	public Cannon(int x, int y, int px, int py){	
+		this.x = x;
 		this.y = y;
+		this.px = px;
+		this.py = py;
 		
 
 	}
@@ -34,11 +37,11 @@ public class Cannon   {
 	}
 	
 	public void findTarget(){
-		if(Player.x < x){
+		if(px < x){
 			bx = -2;
 		}
 		else{ bx = 2;}
-		if (Player.y < y){
+		if (py < y){
 			by = -2;
 		}
 		else {by = 2;}

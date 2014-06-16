@@ -1,7 +1,6 @@
 package game;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -26,19 +25,16 @@ public class MenuState {
 		catch (IOException e) {e.printStackTrace();}
 		try {start = ImageIO.read(new File("/Game/Resources/Menu/start.png"));} 
 		catch (IOException e) {e.printStackTrace();}
-		try {options = ImageIO.read(new File("/Game/Resources/Menu/options.png"));} 
-		catch (IOException e) {e.printStackTrace();}
 		try {quit = ImageIO.read(new File("/Game/Resources/Menu/quit.png"));} 
 		catch (IOException e) {e.printStackTrace();}
 
 	}
 	
 	public static void draw(Graphics g){
-		g.drawImage(background,0, 0, Game.screenSize.width,Game.screenSize.height, null);
-		g.drawImage(title,Game.screenSize.width/2- 150, 100, 300,75, null);
-		g.drawImage(start,Game.screenSize.width/2- 150, 225, 300,75, null);
-		g.drawImage(options,Game.screenSize.width/2- 150, 325, 300,75, null);
-		g.drawImage(quit,Game.screenSize.width/2- 150, 425, 300,75, null);
+		g.drawImage(background,0, 0,1440,920, null);
+		g.drawImage(title,1440/2- 150, 100, 300,75, null);
+		g.drawImage(start,1440/2- 150, 225, 300,75, null);
+		g.drawImage(quit,1440/2- 150, 325, 300,75, null);
 	}
 
 	public static void actions(ActionEvent e) {

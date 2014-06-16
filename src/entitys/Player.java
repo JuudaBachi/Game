@@ -1,44 +1,47 @@
 package entitys;
 
-import game.Game;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 
-import levels.LevelOne;
-import tilemap.Map;
-
 
 public class Player   {
 	
-	public static float x = 40;
-	public static float y = 900;
-	public static float size = 0.3f;
-	public static int width = 26;
-	public static int height = 26;
-	public static float xx = 0;
-	public static float yy = 0;
-	public static boolean inAir = true;
-	public static boolean dead = false;
-	public static boolean facingRight = true;
-	public static float grav = 1;
-	public static float tVol = 2;
-	public static float speed;
-	public static boolean jump = false;
+	public float x = 40;
+	public float y = 800;
+	public  int width = 26;
+	public  int height = 26;
+	public  float xx = 0;
+	public  float yy = 0;
+	public  boolean inAir = true;
+	public  boolean dead = false;
+	public  float grav = 1;
+	public  float tVol = 2;
+	public  float speed;
+	public  boolean jump = false;
+	public int spawnx, spawny;
+	public boolean once = true;
 	
-	public Player(){	
+	public Player(int x, int y){
+		this.x = x;
+		this.y = y;
+		if(once){
+		spawnx = (int) this.x;
+		spawny = (int) this.y;
+		once = false;
+		}
 
 	}	
-	public static void draw(Graphics g){
+	public void draw(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(Color.BLUE);
 		g2.fillRect((int)x, (int)y, width, height);	
 	
 	}	
-	public static void actions(ActionEvent e){
+	public void actions(ActionEvent e){
 		
+		isDead();
 		if(inAir == true){
 		fall();
 		}
@@ -47,41 +50,36 @@ public class Player   {
 		
 	}
 	
-	public static void fall(){
+	public void fall(){
 		yy = yy + grav;
 		if(yy>tVol){
 			yy = tVol;
 		}
-		Player.y += yy;
+		y += yy;
 	
 		
 	}
 	
-	public static void isDead(){
+	public void isDead(){
 		if (dead == true){
+			dead = false;
 			respawn();
-			inAir = true;
 		}
 	}
-	public static void respawn(){
-		x = 10;
-		y = 10;
+	public void respawn(){
+		x = spawnx ;
+		y = spawny ;
 	}
-	public static void Right(){xx = 2;}
-	public static void Left(){xx = -2;}
-	public static void Jump() {
-		
+	public void Right(){xx = 2;}
+	public void Left(){xx = -2;}
+	public void Jump() {	
 		if(inAir == false){
-		inAir = true;
 		yy = yy - grav * 15;
 		y += yy;
+		inAir = true;
 		}
 	
 	}
-	public static void Stop(){xx = 0;}
-	
-	
-
-		
+	public void Stop(){xx = 0;}
 	}
 
